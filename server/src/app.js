@@ -43,7 +43,15 @@ if (!config.isTest) {
   app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 }
 
-// Health Check Endpoints
+// Welcome & Health Check Endpoints
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: '🚀 LocalKart Hyperlocal API is running',
+    version: '1.0.0',
+    documentation: '/api/v1/health',
+  });
+});
+
 app.get('/health', (req, res) => {
   res.status(200).json({
     status: 'UP',
