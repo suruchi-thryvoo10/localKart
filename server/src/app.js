@@ -25,6 +25,7 @@ import notificationsRoutes from './modules/notifications/notifications.routes.js
 import adminRoutes from './modules/admin/admin.routes.js';
 
 const app = express();
+app.set('trust proxy', 1);
 
 // Security and compression middlewares
 app.use(helmet({
